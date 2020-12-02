@@ -1,7 +1,7 @@
 library(tidyverse)
 
 # Part I ----
-input = tibble(expense = scan("solutions/day01/01_input"))
+input = tibble(expense = scan("solutions/day01/input"))
 
 input %>% 
   filter((2020 - expense) %in% expense) %>% 
