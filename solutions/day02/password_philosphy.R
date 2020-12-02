@@ -10,15 +10,6 @@ input %>%
   filter(letter_count >= min & letter_count <= max) %>% 
   nrow()
 
-# tried filter(between(letter_count, min, max)) first but it returns wrong results!
-# it must be looking at the whole column instead of row or something
-
-between(4, 2, 3)
-
-tibble(min = c(2, 5), max = c(3, 5), value = c(4, 5)) %>% 
-  rowwise() %>% 
-  mutate(is_between = between(value, min, max))
-
 # Part II
 input %>% 
   separate(policy, into = c("position1", "position2", "letter"), sep = "-| ", convert = TRUE) %>% 
