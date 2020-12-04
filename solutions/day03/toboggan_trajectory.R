@@ -13,12 +13,9 @@ input %>%
   separate_rows(trees, sep = "") %>% 
   group_by(rowid) %>% 
   mutate(column_id = seq_along(rowid) - 1) %>% 
-  ungroup() %>% 
   # using modulo operator (%%) to see where it lands in each repeat batch:
   # (lots of playing around with +-1 and brackets happened before got to the right answer)
-  mutate(location_remainder = if_else(location <= max(column_id),
-                                      location,
-                                      location %% (max(column_id) + 1))) %>% 
+  mutate(location_remainder = location %% (max(column_id) + 1)) %>% 
   filter(location_remainder == column_id &  trees == "#") %>% 
   nrow()
 
@@ -36,10 +33,7 @@ get_slope_trees = function(step_right = 1, step_down = 2){
     separate_rows(trees, sep = "") %>% 
     group_by(rowid) %>% 
     mutate(column_id = seq_along(rowid) - 1) %>% 
-    ungroup() %>% 
-    mutate(location_remainder = if_else(location <= max(column_id),
-                                        location,
-                                        location %% (max(column_id) + 1))) %>% 
+    mutate(location_remainder = location %% (max(column_id) + 1)) %>% 
     filter(location_remainder == column_id &  trees == "#") %>% 
     nrow() %>% 
     # and this as integers are 32-bit, doubles 64-bit
