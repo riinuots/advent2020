@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 4
+
+This was a pure data wrangling and cleaning problem so very convenient in R and tidyverse. Thinking I need to figure out the regular expression for `# followed by exactly six characters 0-9 or a-f` phased me for a second, until I realised this is a HEX code. So I searched online for "R hex code checker", which is a built in function. No regular expressions needed for this one.
+
 # Day 3
 
 To solve this one - a forest patch that repeats periodically - module operations/remainders are needed. I never encounter modulos in my work, the only reason I knew this is what to do is because I also did Advent of Code last year. In short, I only use the modulo operator (`%%`) in December :smiley:
