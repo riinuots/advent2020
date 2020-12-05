@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 5
+
+This was short and sweet - no need to try and step through the rows/columns, as the name of the puzzle hints, the row and column locations were given as binary numbers. R's function for binary to decimal is `strtoi(..., base = 2)`.
+
 # Day 4
 
 This was a pure data wrangling and cleaning problem so very convenient in R and tidyverse. Thinking I need to figure out the regular expression for `# followed by exactly six characters 0-9 or a-f` phased me for a second, until I realised this is a HEX code. So I searched online for "R hex code checker", which is a built in function. No regular expressions needed for this one.
