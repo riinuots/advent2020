@@ -6,6 +6,12 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 6
+
+This was a nice data sciency day again. As usual, wrangling your data into the right format is half the battle. I wrangled the input into a tidy format with my usual best friends: `separate()` and `separate_rows()`. It helped that the format was very similar to Day 4.
+
+Then some grouping, counting and filtering to answer both parts.
+
 # Day 5
 
 This was short and sweet - no need to try and step through the rows/columns, as the name of the puzzle hints, the row and column locations were given as binary numbers. R's function for binary to decimal is `strtoi(..., base = 2)`.
