@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 7
+
+Was able to use `library(igraph)` for the first one, but had to write a loop for Part II.
+
 # Day 6
 
 This was a nice data sciency day again. As usual, wrangling your data into the right format is half the battle. I wrangled the input into a tidy format with my usual best friends: `separate()` and `separate_rows()`. It helped that the format was very similar to Day 4.
