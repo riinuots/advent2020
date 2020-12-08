@@ -17,7 +17,7 @@ bags_distances = input %>%
   graph_from_data_frame(directed = TRUE) %>% 
   distances(to = "shiny gold", mode = "in")
 
-bags_distances[bags_distances > 0 & is.infinite(bags_distances)] %>%
+bags_distances[bags_distances > 0 & is.finite(bags_distances)] %>%
   length()
 
 # Part II
