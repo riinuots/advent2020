@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 8
+
+This was a pretty standard if-elses typing exercise. At least the way I solved it. Will now head to Twitter to see what other people came up with.
+
 # Day 7
 
 Was able to use `library(igraph)` for the first one, but had to write a loop for Part II.
