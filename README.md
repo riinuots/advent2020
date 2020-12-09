@@ -6,6 +6,17 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 9
+
+I wrote my first recursive function in about 10 years. Had huge success with it for Part I - much simpler than I feared it would be. Worked like a charm.
+
+Wrote another recursive function for Part II, which worked for the test case but exceeded the stack limit for the real input. Thing is, recursive functions don't release stack memory until you heading back up. But my solution didn't do that, it doesn't come back up. 
+
+One potential solution would have been to split my single recursive function into two recursive functions - one that changes the location, the other one that changes the range.
+
+But another viable solution - and the one I ended up with - was avoiding function arguments and defining the location and range variables in the global environment. And then using `<<-` to modify these global variables directly.
+
+
 # Day 8
 
 This was a pretty standard if-elses typing exercise. At least the way I solved it. Will now head to Twitter to see what other people came up with.
