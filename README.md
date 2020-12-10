@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 10 
+
+Really wasn't feeling like writing another recursive function, nor a loop. Was going to skip Part II, but after realising how friendly the input is - maximum group length is 4 - figured the possible options within group size out using pen and paper. Then a little bit of tidy wrangling, join in combinations, take product.
+
 # Day 9
 
 I wrote my first recursive function in about 10 years. Had huge success with it for Part I - much simpler than I feared it would be. Worked like a charm.
