@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 11
+
+No clever ideas here, just a bunch of nested loops. For figuring out Part II, used RStudio's debugging tools with the `browser()` function a lot.
+
 # Day 10 
 
 Really wasn't feeling like writing another recursive function, nor a loop. Was going to skip Part II, but after realising how friendly the input is - maximum group length is 4 - figured the possible options within group size out using pen and paper. Then a little bit of tidy wrangling, join in combinations, take product.
