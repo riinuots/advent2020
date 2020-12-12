@@ -10,6 +10,17 @@ Previous year: https://github.com/riinuots/advent2019
 
 No clever ideas here, just a bunch of nested loops. For figuring out Part II, used RStudio's debugging tools with the `browser()` function a lot.
 
+I first ran my code on a tibble just because that's what it was after wrangling. The first part took 5 minutes, by just adding ` %>% as.matrix()` to the wrangling bit, Part I ran in 20 seconds. 
+
+How to check how long a bit runs for:
+```
+start_time = Sys.time()
+...
+Sys.time() - start_time
+```
+
+I didn't time Part II in tibble format properly, but it was about 15 minutes. On a matrix, the exact same code ran in 1 minute. Tibbles have some essential qualities, they are consistent and they work well with tidyverse functions. But after wrangling, I didn't use any tidyverse functions for this solution. So `as.matrix()` is much more appropriate.
+
 # Day 10 
 
 Really wasn't feeling like writing another recursive function, nor a loop. Was going to skip Part II, but after realising how friendly the input is - maximum group length is 4 - figured the possible options within group size out using pen and paper. Then a little bit of tidy wrangling, join in combinations, take product.

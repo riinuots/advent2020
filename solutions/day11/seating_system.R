@@ -10,7 +10,8 @@ input = input_orig %>%
   add_row(seats = paste0(rep(".", width), collapse = ""), .before = 1) %>% 
   add_row(seats = paste0(rep(".", width), collapse = "")) %>% 
   mutate(seats = paste0(".", seats, ".")) %>% 
-  separate(seats, into = c(NA, paste0("column", 1:(width+2))), sep = "")
+  separate(seats, into = c(NA, paste0("column", 1:(width+2))), sep = "") %>% 
+  as.matrix()
 
 # Part I ----
 people_move = function(mylayout){
@@ -45,7 +46,8 @@ people_move = function(mylayout){
   return(lst(changes, new_layout))
 }
 n_times = 0
-while (FALSE){
+start_time = Sys.time()
+while (TRUE){
   print(n_times)
   if (n_times == 0){
     layout = people_move(input)
@@ -61,6 +63,7 @@ while (FALSE){
   }
   #if (n_times > 5){break}
 }
+Sys.time() - start_time
 
 # Part II ----
 
@@ -137,6 +140,7 @@ people_move2 = function(mylayout){
 }
 
 n_times = 0
+start_time = Sys.time()
 while (TRUE){
   print(n_times)
   if (n_times == 0){
@@ -154,3 +158,4 @@ while (TRUE){
   }
   #if (n_times > 2){break}
 }
+Sys.time() - start_time
