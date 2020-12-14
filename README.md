@@ -6,6 +6,22 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 14
+
+The wrangling bit was very pleasant, and I think my solution using `slice_max()` to grab the latest changes was pretty neat. No need to actually apply the changes to each location. Just keep the last one.
+
+I did have some hassle with the 36-bit numbers, my handy friend `strtoi(..., base = 2)` can only do integers, which in R are 32-bit. And I couldn't find a similar function to do binary to numeric (which is 64-bit). So ended up just grabbing off the extra bits, doing the conversion on 32-bits, adding the extra large numbers on separately. SORRY, NOT SORRY.
+
+Skipping Part II, getting tired. 
+
+# Day 13
+
+Part I was cool, but Part II is beyond me. Skipping.
+
+# Day 12
+
+This one is pretty cool, makes you think about coordinates and directions. I've done Part I and have a pencil&paper plan for Part II. Might finish on a later date if have time.
+
 # Day 11
 
 No clever ideas here, just a bunch of nested loops. For figuring out Part II, used RStudio's debugging tools with the `browser()` function a lot.

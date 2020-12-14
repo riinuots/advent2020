@@ -3,7 +3,7 @@ library(tidyverse)
 input = tibble(instruction = read_lines("solutions/day12/input-test")) %>% 
   separate(instruction, into = c("action", "value"), sep = 1, convert = TRUE)
 
-# check that it only turns 90 degrees at a time:
+# check that it only turns 90/180/270  degrees at a time:
 input %>% 
   filter(action %in% c("R", "L")) %>% 
   count(value)
