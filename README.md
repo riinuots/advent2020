@@ -6,6 +6,13 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 15
+
+Without even trying to solve it with simple vectors, I decided I wanted to try something new. I was alos hoping that the new thing would be superfast. I read this blog post and decided to go with the environments option: https://blog.dominodatalab.com/a-quick-benchmark-of-hashtable-implementations-in-r/
+However, since the key has to be a valid R identifier (so can't be a number) it converted all numbers back and forth between characters. This meant my final solution for Part II took 44 minutes.
+
+I then re-wrote it using vectors. Now runs in 10 seconds. But the first solution was cool nevertheless :smiley:
+
 # Day 14
 
 The wrangling bit was very pleasant, and I think my solution using `slice_max()` to grab the latest changes was pretty neat. No need to actually apply the changes to each location. Just keep the last one.
