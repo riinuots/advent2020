@@ -1,5 +1,6 @@
 library(tidyverse)
 
+# Part I only ----
 input = tibble(input = read_lines("solutions/day19/input"))
 
 split_at = which(input$input == "")
@@ -19,31 +20,27 @@ rules = rules_orig %>%
   mutate(rule = if_else(str_detect(rule, " "), paste0("( ", rule, " )"), rule))
 
 rules_mod = rules %>%
+  # this is a hack
   mutate(rule = str_replace_all(rule, " 8 ", " 42 ")) %>%
   filter(id != 8)
 
 while (TRUE){
-
-finals = rules_mod %>% 
-  filter(! str_detect(rule, "[:digit:]"))
-
-print(nrow(finals))
-
-for (i in 1:nrow(finals)){
-  #i = 1
-  #if (42 %in% finals$id){browser()}
-  myid = paste0(" ", finals$id[i], " ")
-  myrule = paste0(" ", finals$rule[i], " ")
+  
+  finals = rules_mod %>% 
+    filter(! str_detect(rule, "[:digit:]"))
+  
+  for (i in 1:nrow(finals)){
+    myid = paste0(" ", finals$id[i], " ")
+    myrule = paste0(" ", finals$rule[i], " ")
+    rules_mod = rules_mod %>% 
+      mutate(rule = str_replace_all(rule, myid, myrule))
+  }
   rules_mod = rules_mod %>% 
-    mutate(rule = str_replace_all(rule, myid, myrule))
-}
-rules_mod = rules_mod %>% 
-  #filter(! id %in% finals$id) %>% 
-  mutate(rule = if_else(str_detect(rule, "\\|") | str_detect(rule, "[:digit:]"),
-                        rule,
-                        str_remove_all(rule, "[[:punct:]]| "))) 
-
-if(nrow(finals) == 130){break}
+    mutate(rule = if_else(str_detect(rule, "\\|") | str_detect(rule, "[:digit:]"),
+                          rule,
+                          str_remove_all(rule, "[[:punct:]]| "))) 
+  
+  if(nrow(finals) == nrow(rules_mod)){break}
 }
 
 
