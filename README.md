@@ -12,6 +12,11 @@ I thought I was really clever in Part I - realising that I only need to identify
 
 Turns out Part II really did need a picture, not just corners. Anyway, one star is better than nothing.
 
+# Day 19
+
+Loved how much more comfortable I was with regular expressions by the end of this.
+
+
 # Day 18
 
 This was a cute one overall, although I did spend a lot of time bebugging my solution. Part I only.
