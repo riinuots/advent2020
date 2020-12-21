@@ -12,6 +12,10 @@ I thought I was really clever in Part I - realising that I only need to identify
 
 Turns out Part II really did need a picture, not just corners. Anyway, one star is better than nothing.
 
+# Day 18
+
+This was a cute one overall, although I did spend a lot of time bebugging my solution. Part I only.
+
 # Day 15
 
 Without even trying to solve it with simple vectors, I decided I wanted to try something new. I was alos hoping that the new thing would be superfast. I read this blog post and decided to go with the environments option: https://blog.dominodatalab.com/a-quick-benchmark-of-hashtable-implementations-in-r/
