@@ -6,6 +6,12 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 20
+
+I thought I was really clever in Part I - realising that I only need to identify the corners and that the input was friendly. So there were exactly 4 tiles with just 2 matching edges, which meant they had to be the corners. So I never did assemble a picture. 
+
+Turns out Part II really did need a picture, not just corners. Anyway, one star is better than nothing.
+
 # Day 15
 
 Without even trying to solve it with simple vectors, I decided I wanted to try something new. I was alos hoping that the new thing would be superfast. I read this blog post and decided to go with the environments option: https://blog.dominodatalab.com/a-quick-benchmark-of-hashtable-implementations-in-r/
