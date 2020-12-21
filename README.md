@@ -6,6 +6,11 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 21 
+
+Spent some time trying to come up with a clever data-sciency pipeline with group_by, add_count, slice_max etc etc, but with no luck. Looped through allergens and that worked.
+Used `library(unglue)` for the first time. 
+
 # Day 20
 
 I thought I was really clever in Part I - realising that I only need to identify the corners and that the input was friendly. So there were exactly 4 tiles with just 2 matching edges, which meant they had to be the corners. So I never did assemble a picture. 
