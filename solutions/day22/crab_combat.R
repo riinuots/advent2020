@@ -1,51 +1,42 @@
 library(tidyverse)
 
-input = tibble(input = read_lines("solutions/day22/input-test"))
+input = tibble(input = read_lines("solutions/day22/input"))
 
+# Part I ----
 cards = input %>% 
   mutate(player = str_extract(input, "Player [:digit:]:")) %>% 
   fill(player, .direction = "down") %>% 
   filter(str_detect(input, "^\\d+$")) %>% 
   mutate(card = parse_number(input)) %>% 
-  select(-input)
+  select(-input) %>% 
+  group_by(player) %>% 
+  mutate(order = row_number())
 
 stopifnot(nrow(cards) + 3 == nrow(input))
 
-player1 = cards %>% 
-  filter(player == "Player 1:") %>% 
-  select(me = card) %>% 
-  rowid_to_column()
 
-player2 = cards %>% 
-  filter(player == "Player 2:") %>% 
-  select(crab = card) %>% 
-  rowid_to_column()
+while (cards$player %>% n_distinct() == 2){
+  cards = cards %>% 
+    group_by(order) %>% 
+    mutate(is_winner = card == max(card)) %>% 
+    mutate(was_involved = if_else(n_distinct(player) == 2, "2 - Played", "1 - Not Played")) %>% 
+    ungroup() %>% 
+    mutate(reallocate = if_else(is_winner, player, NA_character_)) %>% 
+    arrange(was_involved, order, reallocate) %>% 
+    fill(reallocate, .direction = "down") %>% 
+    select(player = reallocate, card) %>% 
+    group_by(player) %>% 
+    mutate(order = row_number()) %>% 
+    arrange(player, order)
+  
 
-while (nrow(player1) > 0 & nrow(player2) > 0){
-  max_deck = max(c(nrow(player1), nrow(player2)))
-  match = left_join(
-    slice(player1, 1:max_deck),
-    slice(player2, 1:max_deck)) %>% 
-    mutate(result = if_else(me > crab, "me", "crab")) %>% 
-    pivot_longer(matches("me|crab"), names_to = "drop", values_to = "card") %>% 
-    select(-drop)
-  
-  if (! max_deck == nrow(player1)){
-    remained1 = slice(player1, (max_deck+1):nrow(player1))
-  } else{
-    remained1 = slice(player1, NA)
-  }
-  if (! max_deck == nrow(player2)){
-    remained2 = slice(player2, (max_deck+1):nrow(player2))
-  } else{
-    remained2 = slice(player2, NA)
-  }
-  
 }
-
-
-
-
+cards %>% 
+  ungroup() %>% 
+  arrange(-order) %>% 
+  rowid_to_column("score") %>% 
+  summarise(result = sum(score*card)) %>% 
+  pull(result)
 
 
 

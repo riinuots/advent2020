@@ -6,6 +6,10 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 22
+
+Started off by writing a bunch of loops and filters and slices leading to `bind_rows()`, etc. While doing that the single tidyverse pipeline solution came to me. Still has a while loop for the rounds of course. Part I only.
+
 # Day 21 
 
 Spent some time trying to come up with a clever data-sciency pipeline with group_by, add_count, slice_max etc etc, but with no luck. Looped through allergens and that worked.
