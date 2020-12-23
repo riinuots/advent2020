@@ -6,6 +6,11 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 23
+
+Part I was cute. I like playing with this crab. Part II is repeating Part II 10 million times and on larger input. My solution would take over 300h. Simple profiling/quick ideas would probably reduce it tenfold, which is still very long. Leaving it.
+
+
 # Day 22
 
 Started off by writing a bunch of loops and filters and slices leading to `bind_rows()`, etc. While doing that the single tidyverse pipeline solution came to me. Still has a while loop for the rounds of course. Part I only.
