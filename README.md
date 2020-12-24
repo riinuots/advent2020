@@ -6,6 +6,12 @@ other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
 
+# Day 24
+
+Nice problem, learned how to represent a hexagon grid in cube coordinates as per:   https://math.stackexchange.com/a/2482393
+
+I wish I could plot them.
+
 # Day 23
 
 Part I was cute. I like playing with this crab. Part II is repeating Part II 10 million times and on larger input. My solution would take over 300h. Simple profiling/quick ideas would probably reduce it tenfold, which is still very long. Leaving it.

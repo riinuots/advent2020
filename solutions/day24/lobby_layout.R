@@ -30,47 +30,60 @@ tiles = left_join(instructions, moves) %>%
 
 count(tiles, black = n_visits %% 2 == 1)
 
-# Part II 
+# Part II ----
 
 current_black = tiles %>% 
   mutate(black = n_visits %% 2 == 1) %>% 
   filter(black) %>% 
-  select(x = dx, y = dy, z = dz, black)
+  select(x = dx, y = dy, z = dz, black) %>% 
+  rowwise() %>% 
+  mutate(id = paste(x, y, z, collapse = "")) %>% 
+  ungroup()
 
 for (i in 1:100){
   print(i)
-  grid = crossing(x = (min(current_black$x)-1):(max(current_black$x)+1),
-                  y = (min(current_black$y)-1):(max(current_black$y)+1),
-                  z = (min(current_black$z)-1):(max(current_black$z)+1)) %>% 
-    left_join(current_black, by = c("x", "y", "z")) %>% 
-    replace_na(list(black = FALSE)) %>% 
-    left_join(moves, by = character())
+
+  neighbours = left_join(current_black, moves, by = character()) %>% 
+    mutate(nx = x + dx,
+           ny = y + dy,
+           nz = z + dz) %>% 
+    select(x = nx, y = ny, z = nz) %>% 
+    distinct(x, y, z) %>% 
+    rowwise() %>% 
+    mutate(id = paste(x, y, z, collapse = "")) %>% 
+    filter(! id %in% current_black$id) %>% 
+    mutate(black = FALSE)
+  
+  looking_at = bind_rows(current_black, neighbours) %>% 
+    select(-id)
   
   # nx - neighbour x
   # .c - current
   # .n - neighbour
-  grid2 = grid %>% 
+  
+  new_black = looking_at %>% 
+    left_join(moves, by = character()) %>% 
     mutate(nx = x + dx,
            ny = y + dy,
            nz = z + dz) %>% 
     left_join(current_black, by = c("nx" = "x", "ny" = "y", "nz" = "z"), suffix = c(".c", ".n")) %>% 
-    replace_na(list(black.n = FALSE))
-  
-  
-  grid3 = grid2 %>% 
+    replace_na(list(black.n = FALSE)) %>% 
     group_by(x, y, z, black.c) %>% 
     summarise(n_black = sum(black.n)) %>% 
     mutate(black = case_when(
       black.c     & (n_black == 0 | n_black > 2) ~ FALSE, # flip to white
       (! black.c) & n_black == 2                 ~ TRUE,  # flip to black
-      TRUE ~ black.c)) # keep current colour
-  
-  current_black = grid3 %>% 
+      TRUE ~ black.c)) %>% # keep current colour
     filter(black) %>% 
-    select(x, y, z, black)
+    select(x, y, z, black) %>% 
+    rowwise() %>% 
+    mutate(id = paste(x, y, z, collapse = "")) %>% 
+    ungroup()
+  
+  current_black = new_black
   
 }
 
-
+nrow(current_black)
 
 
