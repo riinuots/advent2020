@@ -7,25 +7,20 @@ door_public = 17786549
 # card_public = 5764801
 # door_public = 17807724
 
-init_subject = 7
-value = 1
-loop_size = 0
-public_keys = c(card_public, door_public)
-subject_number = init_subject
+# Part I ----
 
-trans_subject = function(){
-  loop_size <<- loop_size + 1
-  value <<- value*subject_number
-  value <<- value %% 20201227
-  if (value %in% public_keys){
-    return(loop_size)
+loopsize = function(public_keys, value = 1, loop_size = 0, subject_number = 7){
+  while (! value %in% public_keys){
+    loop_size = loop_size + 1
+    value = value*subject_number
+    value = value %% 20201227
   }
-  trans_subject()
+  return(loop_size)
 }
 
-trans_subject()
-card_loopsize = trans_subject(card_public, 7)
-door_loopsize = trans_subject(door_public, 7)
+
+card_loopsize = loopsize(card_public)
+door_loopsize = loopsize(door_public)
 
 
 encryption_key = function(subject_number, loop_size, value = 1){

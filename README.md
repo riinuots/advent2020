@@ -1,10 +1,19 @@
 Diary: Advent of Code 2020
 ================
-  
-Notes about functions/arguments I’d not come across before. And any
+
+
+The first time I did Advent of Code I achieved 25 stars, my goal this year was to get more. Achieved.
+
+![](aoc_stars.png)
+
+The README includes botes about functions/arguments I’d not come across before. And any
 other thoughts. Full solutions can be found in the solutions folder.
 
 Previous year: https://github.com/riinuots/advent2019
+
+# Day 25
+
+Used recursion first which worked beautifully on test input, but came up with stack useage limits for the main one. I tried to use the same hack I used in Day 09 - assigning values to global variables, but still. Replacing with a loop worked. Part I only.
 
 # Day 24
 
