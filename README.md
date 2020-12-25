@@ -4,7 +4,7 @@ Diary: Advent of Code 2020
 
 The first time I did Advent of Code I achieved 25 stars, my goal this year was to get more. Achieved.
 
-![](aoc_stars.png)
+![2019 - 25 stars, 2020 - 37 stars](aoc_stars.png)
 
 The README includes botes about functions/arguments I’d not come across before. And any
 other thoughts. Full solutions can be found in the solutions folder.
