@@ -1,5 +1,3 @@
-#library(tidyverse)
-
 card_public = 7573546
 door_public = 17786549
 
